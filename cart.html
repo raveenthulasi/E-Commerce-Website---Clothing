@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <style>
+    body {
+      background: #000;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #00ffcc;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cart Details</h1>
+  <p id="userEmail"></p>
+  <ul id="cartItems"></ul>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+    const cart = JSON.parse(decodeURIComponent(urlParams.get('cart')) || '[]');
+
+    document.getElementById('userEmail').innerText = `Logged in as: ${email}`;
+    const cartList = document.getElementById('cartItems');
+
+    if (cart.length === 0) {
+      cartList.innerHTML = "<li>Your cart is empty.</li>";
+    } else {
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = `${item.name} - ₹${item.price}`;
+        cartList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container" id="loginBox">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="shop" id="shopItems"></div>
+  <button id="viewCartBtn" class="view-cart-btn" style="display:none;" onclick="viewCart()">View Cart</button>
+  <p class="cart-message" id="cartMsg"></p>
+
+  <div id="cartSummary" style="display:none; background:#111; margin:20px auto; padding:20px; width:80%; border-radius:10px;">
+    <h3 style="color:orange;">🛒 Your Cart Summary</h3>
+    <ul id="cartList" style="list-style:none; padding-left:0;"></ul>
+    <p id="totalPrice" style="color:#0f0;"></p>
+    <button onclick="checkout()" style="background:#ff5733; color:white; padding:10px 20px; border:none; border-radius:5px;">Go to Checkout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
